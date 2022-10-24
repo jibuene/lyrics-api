@@ -1,0 +1,1 @@
+from src.routes.lyrics import lyrics_info
