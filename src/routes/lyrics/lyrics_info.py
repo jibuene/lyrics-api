@@ -13,6 +13,9 @@ class search(Resource):
 
             [Song(id, artist, ...)]
         """
-        xd = GeniusAPI.searchByArtist(artist, 1)[0]
-        print(xd.lyrics)
-        return xd.lyrics
+        song = GeniusAPI.searchByArtist(artist, 1)
+        if (song == 'No results found'):
+            return 'No result found', 404
+        if (not hasattr(song, 'lyrics')):
+            return song[0]
+        return song.lyrics
