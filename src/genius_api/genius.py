@@ -11,9 +11,9 @@ class GeniusAPI:
   genius = Genius(GENIUS_API_KEY)
 
   def searchByArtist(artist, max_songs):
-    artist = genius.search_artist(artist, max_songs=max_songs, getRandom=True)
-    if (artist == None or not hasattr(artist, 'songs') or len(artist.songs) == 0):
-      return 'No results found'
+    artist = genius.search_random_song_from_artist(artist, max_songs=max_songs)
+    # if (artist == None or not hasattr(artist, 'songs') or len(artist.songs) == 0):
+    #   return 'No results found'
     return artist.songs
 
   def searchByTag(tag, page):
